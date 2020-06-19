@@ -39,5 +39,7 @@ forsa rtm ls
 ```
 
 The actual space taken is given by
-![formula](https://render.githubusercontent.com/render/math?math=>S_1%20=%20S_0%20*%20%28%20\frac{1}{A_1}%29%20-%20S_{-1}%20*%20%28\frac{1}{A_{-1}}%29)
-where S_1 is the space taken, S_0 is the raw data size (the output of step 4), and A_1 is the amplification factor from step 8. S and A with -1 subscripts refer to the space taken and amplification found in steps 4 and 5.
+
+![formula](https://render.githubusercontent.com/render/math?math=S_1%20=%20S_0%20*%20%28%20\frac{1}{A_1}%29%20-%20S_{-1}%20*%20%28\frac{1}{A_{-1}}%29)
+
+where ![formula](https://render.githubusercontent.com/render/math?math=S_1) is the space taken, ![formula](https://render.githubusercontent.com/render/math?math=S_0) is the raw data size (the output of step 4), and ![formula](https://render.githubusercontent.com/render/math?math=A_1) is the amplification factor from step 8. ![formula](https://render.githubusercontent.com/render/math?math=S_{-1}) and ![formula](https://render.githubusercontent.com/render/math?math=A_{-1}) refer to the space taken and amplification found in steps 4 and 5.
