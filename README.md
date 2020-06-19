@@ -3,7 +3,7 @@ Resources for reproducing the testing done on BitMarker effectiveness with regar
 
 
 ## Prerequisites
-Before getting started, get a free trial of Forsa (here)[https://www.formulusblack.com/see-it-work/]. You will also need to install Forsa on your preferred OS (we used Ubuntu 18.04). <br/>
+Before getting started, get a free trial of Forsa [here](https://www.formulusblack.com/see-it-work/). You will also need to install Forsa on your preferred OS (we used Ubuntu 18.04). <br/>
 
 
 ## Testing
@@ -40,8 +40,6 @@ forsa rtm ls
 
 The actual space taken is given by
 
-<div align="center">
 ![formula](https://render.githubusercontent.com/render/math?math=S_1%20=%20S_0%20*%20%28%20\frac{1}{A_1}%29%20-%20S_{-1}%20*%20%28\frac{1}{A_{-1}}%29)
-</div>
 
 where ![formula](https://render.githubusercontent.com/render/math?math=S_1) is the space taken, ![formula](https://render.githubusercontent.com/render/math?math=S_0) is the raw data size (the output of step 4), and ![formula](https://render.githubusercontent.com/render/math?math=A_1) is the amplification factor from step 8. ![formula](https://render.githubusercontent.com/render/math?math=S_{-1}) and ![formula](https://render.githubusercontent.com/render/math?math=A_{-1}) refer to the space taken and amplification found in steps 4 and 5.
