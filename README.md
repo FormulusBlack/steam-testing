@@ -7,21 +7,37 @@ Before getting started, get a free trial of Forsa (here)[https://www.formulusbla
 
 
 ## Testing
-1. Create a LEM:
+1. Create a LEM (Logical Extension of Memory):
 ```
 forsa --user <username> --psswd <password> lem create --name STEAM_TESTING --size $(bc <<< "256 * 1024")
 ```
 
-1. Create a VM (for our testing we used 73G RAM and 8 CPUs, but that shouldn't affect deduplication results):
+2. Create a VM (for our testing we used 73G RAM and 8 CPUs, but that shouldn't affect deduplication results):
 ```
 forsa --user <username> --psswd <password> vm create --name Steam_Ubuntu --cpu <cpu> --ram <ram>
 ```
 
-1. Attach the LEM to the VM:
+3. Attach the LEM to the VM:
 ```
 forsa --user <username> --psswd <password> vm attach --device-name STEAM_TESTING --name Steam_Ubuntu --type lem
 ```
 
-1. Install Ubuntu desktop on the VM. After installing Steam, take baseline disk usage information with `df`.
+4. Install Ubuntu desktop on the VM. After installing Steam, take baseline disk usage information with `df`.
 
-1. Install the games detailed in [`game-data.csv`](data/game-data.csv)
+5. Identify the amplification factor of the LEM with:
+```
+forsa rtm ls
+```
+
+6. Install the games detailed in [`game-data.csv`](data/game-data.csv). As much as I wish there was a script for this, there isn't.
+
+7. Take note of the new disk usage information with `df`. You should see around 200 GB of data in your `~/.steam/debian-installation/steamapp/common` folder.
+
+8. Identify the amplification factor of the LEM with:
+```
+forsa rtm ls
+```
+
+The actual space taken is given by
+![formula](https://render.githubusercontent.com/render/math?math=>S_1%20=%20S_0%20*%20%28%20\frac{1}{A_1}%29 - S_{-1} * %28\frac{1}{A_{-1}}%29)
+where S_1 is the space taken, S_0 is the raw data size (the output of step 4), and A_1 is the amplification factor from step 8. S and A with -1 subscripts refer to the space taken and amplification found in steps 4 and 5.
