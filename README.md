@@ -67,3 +67,15 @@ The actual space used can be calculated from this number.
 
 [This guide](https://opensourceforu.com/2019/02/data-deduplication-with-a-linux-based-file-system/) gave us our approach for setting up `lessfs`. Default configurations were used except for the `compression` line, which we set to `none`. We found in testing that turning on compression incurred a performance penalty too high for gaming applications.
 
+### 3. fdupes
+
+For testing `fdupes`, we installed with `apt`. Then, we collected data with
+
+```
+> fdupes -r ~/.steam > ~/fdupes.out
+```
+
+The included [`fdupes-analyze.py`](tools/fdupes-analyze.py) can read the output of `fdupes -r` and return the savings. To use, run
+```
+> ./fdupes-analyze.py ~/fdupes.out
+```
